@@ -1,0 +1,157 @@
+/*
+    ##############################
+    #
+    #      GLOBAL
+    #
+    ############################## 
+*/
+
+:root {
+    --primary-color: rgba(44,62,80,1); /* Navy */
+    --secondary-color: rgba(255,176,59,1); /* Orange */
+}
+
+/*
+    ##############################
+    #
+    #      HEADER
+    #
+    ############################## 
+*/
+
+header {
+    min-width: 1024px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    /*resize: vertical;*/
+    /*overflow: auto;*/
+    background-color: rgba(44,62,80,1);
+    color: rgba(255,255,255,1);
+    height: 60px;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.seatme {
+    color: rgba(255,255,255,1);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.5em;
+    margin-left: 21px;
+}
+
+/* Menu */
+nav {
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 50px;
+}
+
+    nav ul {
+        margin-left: 0;
+        padding: 0;
+    }
+        /* First Level */
+        nav ul li {
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            list-style-type: none;
+        }
+
+            nav ul li a {
+                color: rgba(255,255,255,1);
+                display: block;
+                text-decoration: none;
+                line-height: 60px;
+                padding-left: 45px;
+                padding-right: 45px;
+            }
+
+                nav ul li a:hover {
+                    background-color: black;
+                }
+            /* Second Level */
+            nav ul li ul {
+                /* display: flex; */
+                display: none;
+                flex-direction: column;
+                /* position: relative; */
+                /* left: 80px; */
+                /* top: 60px; */
+                z-index: 1;
+            }
+
+            nav ul li ul li {
+                overflow: hidden;
+                height: 0;
+                -webkit-transition: height 300ms ease-in;
+                -moz-transition: height 300ms ease-in;
+                -o-transition: height 300ms ease-in;
+                transition: height 300ms ease-in;
+            }
+
+        nav ul > li:hover ul li {
+            display: flex;
+            height: 60px;
+        }
+
+
+.launchApp {
+    margin-left: auto;
+    margin-right: 18px;
+    border-radius: 2px;
+    background-color: rgba(255,176,59,1);
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+    .launchApp a {
+        text-decoration: none;
+        color: rgba(255,255,255,1);
+        display: block;
+        padding: 10px 20px 10px;
+    }
+/*
+    ##############################
+    #
+    #      MAIN
+    #
+    ############################## 
+*/
+
+main {
+    background-color: rgba(236,236,236,1);
+    min-width: 1024px;
+    height: 5000px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300; 
+    color: white;
+}
+
+.hero {
+    width: 80%;
+    background-color: black;
+    margin: auto;
+}
+
+.title {
+    font-size: 1.5em;
+    
+}
+
+/*
+    ##############################
+    #
+    #      FOOTER
+    #
+    ############################## 
+*/
+
+

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CPSC1045 Project</title>
+    <link rel="stylesheet" href="css/seatme.css">
+    <script src="js/seatme_designer.js" defer></script>
+    <script src="js/seatme_lib.js"></script>
+</head>
+<body>
+    <header id="topBar">
+        <h1>CPSC1045 Project</h1>
+    </header>
+
+    <nav>
+        <div id="leftMenu"></div>
+
+        <div id="leftSubMenu">
+
+            <h2>Select Room</h2>
+            <label>Institution: </label><br />
+            <select id="institutions">
+                <option>Select the institution</option>
+            </select><br /><br />
+
+            <label>Room: </label><br />
+            <select id="rooms"></select><br />
+
+            <hr />
+
+            <h2>Room Size</h2>
+
+            <div class="sizeControl">
+                <p>Width</p>
+                <p>
+                    <button id="widthLess">-</button>
+                    <input type="text" size="4" id="boxWidth" class="inputBoxSize" />
+                    <button id="widthMore">+</button>
+                </p>
+            </div>
+
+            <div class="sizeControl">
+                <p>Height</p>
+                <p>
+                    <button id="heightLess">-</button>
+                    <input type="text" size="4" id="boxHeight" class="inputBoxSize" />
+                    <button id="heightMore">+</button>
+                </p>
+            </div>
+
+            <hr />
+
+            <h2>Tool Box</h2>
+
+            <h3>Seat</h3>
+
+            <div class="seat toolBoxObject" id="toolSeatHorizontal" ></div>
+            <div class="seat toolBoxObject" id="toolSeatVertical" ></div>
+
+            <h3>Door</h3>
+
+            <div class="door toolBoxObject" id="toolDoorHorizontal" ></div>
+            <div class="door toolBoxObject" id="toolDoorVertical" ></div>
+
+            <h3>Whiteboard</h3>
+
+            <div class="whiteBoard toolBoxObject" id="toolWhiteBoardHorizontal" ></div>
+            <div class="whiteBoard toolBoxObject" id="toolWhiteBoardVertical" ></div>
+
+            <hr />
+
+            <h2>Generate JSON</h2>
+
+            <button id="generateJSON" >Generate JSON</button>
+
+        </div>
+    </nav>
+
+    <main>
+        <div id="drawingBox"></div>
+    </main>
+
+</body>
+</html>

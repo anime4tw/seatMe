@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CPSC1045 Project</title>
+    <link rel="stylesheet" href="css/seatme.css">
+    <script src="js/seatme_assigner.js" defer></script>
+    <script src="js/seatme_lib.js"></script>
+    <!-- External Code -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato:300,400" rel="stylesheet">
+</head>
+<body>
+    <header id="topBar">
+        <img class="logo" src="img/logoNavy_chair1.png" alt="Logo" />
+        <span class="seatme">SeatMe</span>
+    </header>
+
+    <nav>
+        <div id="leftMenu"></div>
+
+        <div id="leftSubMenu">
+
+            <h2>Select Room</h2>
+            <label>Institution: </label><br />
+            <select id="institutions">
+                <option>Select the institution</option>
+            </select><br /><br />
+
+            <label>Room: </label><br />
+            <select id="rooms"></select><br />
+
+            <hr />
+            <h2>Class</h2>
+            <input type="text" id="inputClass">
+            <h2>Student List:</h2>
+            <textarea rows=20 id="inputStudents"></textarea><br />
+            <br />
+            <button id="assign">Assign Students</button>
+
+        </div>
+    </nav>
+
+    <main>
+        <div id="drawRoom"></div>
+    </main>
+
+</body>
+</html>

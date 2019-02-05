@@ -1,0 +1,263 @@
+/*
+    ##############################
+    #
+    #      GLOBAL
+    #
+    ############################## 
+*/
+
+:root {
+    /* Navy */
+    --primary-color: rgba(44, 62, 80, 1);
+    /* Orange */
+    --secondary-color: rgba(255, 176, 59, 1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+
+h1 {
+    line-height: 50px;
+    letter-spacing: -1px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    margin: 0 15px;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    margin-top: 30px;
+}
+
+
+/*
+    ##############################
+    #
+    #      HEADER
+    #
+    ############################## 
+*/
+
+header {
+    min-width: 1024px;
+    height: 60px;
+    background-color: rgba(255, 176, 59, 1);
+    color: rgba(255,255,255,1);
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.seatme {
+    color: rgba(255,255,255,1);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.5em;
+    margin-left: 35px;
+}
+
+
+/*
+    ##############################
+    #
+    #      NAV
+    #
+    ############################## 
+*/
+
+nav {
+    position: absolute;
+    width: 270px;
+    height: 100%;
+    top: 60px;
+    left: 0;
+    background-color: #555555;
+    float: left;
+}
+
+nav hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    clear: both;
+    margin-top: 15px;
+}
+
+#leftMenu {
+    background-color: #333333;
+    width: 70px;
+    height: 100%;
+    float: left;
+}
+
+#leftSubMenu {
+    width: 200px;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+#toolSeatHorizontal {
+    width: 100px;
+    height: 50px;
+    float: left;
+}
+
+#toolSeatVertical {
+    width: 50px;
+    height: 100px;
+    float: left;
+}
+
+#toolDoorHorizontal {
+    width: 100px;
+    height: 25px;
+    float: left;
+}
+
+#toolDoorVertical {
+    width: 25px;
+    height: 100px;
+    float: left;
+}
+
+#toolWhiteBoardHorizontal {
+    width: 100px;
+    height: 25px;
+    float: left;
+}
+
+#toolWhiteBoardVertical {
+    width: 25px;
+    height: 100px;
+    float: left;
+}
+
+.sizeControl {
+    margin-bottom: 30px;
+}
+
+.sizeControl p {
+    margin: 10px 0;
+}
+
+.sizeControl button {
+    background-color: #333333;
+    padding: 5px 10px;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: monospace;
+    margin: 0 10px;
+}
+
+.toolBoxObject {
+    margin-left: 15px;
+}
+
+.selected {
+    opacity: 0.7;
+    -webkit-transition: opacity 150ms linear;
+    -ms-transition: opacity 150ms linear;
+    transition: opacity 150ms linear;
+}
+
+.inputBoxSize {
+    height: 27px;
+    background-color: #333333;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/*
+    ##############################
+    #
+    #      MAIN
+    #
+    ############################## 
+*/
+
+main {
+    position: relative;
+    left: 270px;
+}
+
+#drawingBox {
+    background-color: #dffdff;
+    border: 1px solid #bddbdd;
+}
+
+#drawingBox hr {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#grid {
+    background-image: repeating-linear-gradient( 0deg, transparent, transparent 70px, #ccc 70px, #ccc 71px), repeating-linear-gradient( -90deg, transparent, transparent 70px, #ccc 70px, #ccc 71px);
+}
+
+#drawRoom {
+    background-color: #dffdff;
+}
+
+/* ***** Objects ***** */
+.seat {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #b6ff00;
+    border: 2px solid #149800;
+    -webkit-transition: opacity 150ms linear;
+    -ms-transition: opacity 150ms linear;
+    transition: opacity 150ms linear;
+}
+
+.door {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #ff0000;
+    border: 2px solid #aa0000;
+    -webkit-transition: opacity 150ms linear;
+    -ms-transition: opacity 150ms linear;
+    transition: opacity 150ms linear;
+}
+
+.whiteBoard {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #0094ff;
+    border: 2px solid #0050bb;
+    -webkit-transition: opacity 150ms linear;
+    -ms-transition: opacity 150ms linear;
+    transition: opacity 150ms linear;
+}
+
+.activefalse {
+    background-color: #555555;
+    border: #333333;
+}
+
+
+/*
+    ##############################
+    #
+    #      FOOTER
+    #
+    ############################## 
+*/

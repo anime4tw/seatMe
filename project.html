@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            border: 1px solid gray;
+            margin: auto;
+        }
+
+        .wrapper {
+            width: 95%;
+            text-align: center;
+            margin: auto;
+        }
+
+        .leftColumn {
+            width: 20%;
+            display: inline-block;
+            vertical-align: top;
+            margin: auto;
+        }
+
+        .mainColumn {
+            width: 60%;
+            min-width: 800px;
+            min-height: 600px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .rightColumn {
+            width: 15%;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .cls-1 {
+            fill: #29abe2;
+        }
+
+        .cls-2, .cls-3, .cls-4 {
+            fill: none;
+            stroke-miterlimit: 10;
+        }
+
+        .cls-2 {
+            stroke: #000;
+        }
+
+        .cls-2, .cls-3 {
+            stroke-width: 10px;
+        }
+
+        .cls-3 {
+            stroke: #fff;
+        }
+
+        .cls-4 {
+            stroke: lime;
+            stroke-width: 2px;
+            fill: rgba(255, 255, 255, 0.60);
+        }
+
+        .cls-4:hover {
+            fill: white;
+        }
+
+        .cls-5 {
+            font-size: 12px;
+            font-family: MyriadPro-Regular, Myriad Pro;
+        }
+
+        .studentName {
+            alignment-baseline: middle;
+            color: black;
+            font-size: 1em;
+            background-color: white;
+        }
+
+        .studentName:hover {
+            color: white;
+            font-size: 1.4em;
+            background-color: white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Class Seating Assignment</h1>
+    <div class="wrapper">
+        <div class="leftColumn">
+            Course Name: <input id ="inputCourseName" value="CPSC 1045" type="text" /><br />
+            Student List:<br />
+            <textarea id="inputStudentList" cols="25" rows="40"></textarea>
+        </div>
+        <div class="mainColumn">
+            Classroom:
+            <select id="inputClassroom">
+                <option value="B015">B015</option>
+            </select>
+            <span>____ Seats</span><br />
+            <svg width="800" height="600" id="svg">
+                <rect class="cls-1" width="800" height="600" />
+                <line id="door" class="cls-2" x1="800" y1="447" x2="800" y2="526" />
+                <line id="whiteboard" class="cls-3" x1="149" y1="600" x2="693" y2="600" />
+                <rect id="E1" class="cls-4" x="664" y="494" width="42" height="42" />
+                <rect id="E2" class="cls-4" x="664" y="447.8" width="42" height="42" />
+                <rect id="E3" class="cls-4" x="664" y="401.6" width="42" height="42" />
+                <rect id="E4" class="cls-4" x="664" y="355.4" width="42" height="42" />
+                <rect id="E5" class="cls-4" x="664" y="309.2" width="42" height="42" />
+                <rect id="E6" class="cls-4" x="664" y="263" width="42" height="42" />
+                <rect id="E7" class="cls-4" x="664" y="216.8" width="42" height="42" />
+                <rect id="E8" class="cls-4" x="664" y="170.6" width="42" height="42" />
+                <rect id="E9" class="cls-4" x="664" y="124.4" width="42" height="42" />
+                <rect id="E10" class="cls-4" x="664" y="78.2" width="42" height="42" />
+                <rect id="E11" class="cls-4" x="664" y="32" width="42" height="42" />
+                <rect id="D1" class="cls-4" x="594" y="494" width="42" height="42" />
+                <rect id="D2" class="cls-4" x="594" y="447.8" width="42" height="42" />
+                <rect id="D3" class="cls-4" x="594" y="401.6" width="42" height="42" />
+                <rect id="D4" class="cls-4" x="594" y="355.4" width="42" height="42" />
+                <rect id="D5" class="cls-4" x="594" y="309.2" width="42" height="42" />
+                <rect id="D6" class="cls-4" x="594" y="263" width="42" height="42" />
+                <rect id="D7" class="cls-4" x="594" y="216.8" width="42" height="42" />
+                <rect id="D8" class="cls-4" x="594" y="170.6" width="42" height="42" />
+                <rect id="D9" class="cls-4" x="594" y="124.4" width="42" height="42" />
+                <rect id="D10" class="cls-4" x="594" y="78.2" width="42" height="42" />
+                <rect id="D11" class="cls-4" x="594" y="32" width="42" height="42" />
+                <rect id="C1" class="cls-4" x="334" y="494" width="42" height="42" />
+                <rect id="C2" class="cls-4" x="334" y="447.8" width="42" height="42" />
+                <rect id="C3" class="cls-4" x="334" y="401.6" width="42" height="42" />
+                <rect id="C4" class="cls-4" x="334" y="355.4" width="42" height="42" />
+                <rect id="C5" class="cls-4" x="334" y="309.2" width="42" height="42" />
+                <rect id="C6" class="cls-4" x="334" y="263" width="42" height="42" />
+                <rect id="C7" class="cls-4" x="334" y="216.8" width="42" height="42" />
+                <rect id="C8" class="cls-4" x="334" y="170.6" width="42" height="42" />
+                <rect id="C9" class="cls-4" x="334" y="124.4" width="42" height="42" />
+                <rect id="C10" class="cls-4" x="334" y="78.2" width="42" height="42" />
+                <rect id="C11" class="cls-4" x="334" y="32" width="42" height="42" />
+                <rect id="B1" class="cls-4" x="264" y="494" width="42" height="42" />
+                <rect id="B2" class="cls-4" x="264" y="447.8" width="42" height="42" />
+                <rect id="B3" class="cls-4" x="264" y="401.6" width="42" height="42" />
+                <rect id="B4" class="cls-4" x="264" y="355.4" width="42" height="42" />
+                <rect id="B5" class="cls-4" x="264" y="309.2" width="42" height="42" />
+                <rect id="B6" class="cls-4" x="264" y="263" width="42" height="42" />
+                <rect id="B7" class="cls-4" x="264" y="216.8" width="42" height="42" />
+                <rect id="B8" class="cls-4" x="264" y="170.6" width="42" height="42" />
+                <rect id="B9" class="cls-4" x="264" y="124.4" width="42" height="42" />
+                <rect id="B10" class="cls-4" x="264" y="78.2" width="42" height="42" />
+                <rect id="B11" class="cls-4" x="264" y="32" width="42" height="42" />
+                <rect id="A1" class="cls-4" x="64" y="494" width="42" height="42" />
+                <rect id="A2" class="cls-4" x="64" y="447.8" width="42" height="42" />
+                <rect id="A3" class="cls-4" x="64" y="401.6" width="42" height="42" />
+                <rect id="A4" class="cls-4" x="64" y="355.4" width="42" height="42" />
+                <rect id="A5" class="cls-4" x="64" y="309.2" width="42" height="42" />
+                <rect id="A6" class="cls-4" x="64" y="263" width="42" height="42" />
+                <rect id="A7" class="cls-4" x="64" y="216.8" width="42" height="42" />
+                <rect id="A8" class="cls-4" x="64" y="170.6" width="42" height="42" />
+                <rect id="A9" class="cls-4" x="64" y="124.4" width="42" height="42" />
+                <rect id="A10" class="cls-4" x="64" y="78.2" width="42" height="42" />
+                <rect id="A11" class="cls-4" x="64" y="32" width="42" height="42" />
+            </svg>
+        </div>
+        <div class="rightColumn">
+            <button onclick="assignSeating()">Assign Students to Computers</button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        //okay, this code is messy; it needs a clean-up, and the results need to be formatted properly.
+
+        // FUTURE DEVELOPMENT
+        // ==================
+        // 1. Determine which direction the span should be; from left, or from right
+        //    -- Use text-anchor=end
+        //    -- this will be a list that itterates through the computerId letter: odd letters = left align;
+        //    -- perhaps using str.charAt(i);
+        // 2. Adjust x,y
+        // 3. Bind the name to the computer (make a new object?)
+        //    -- Do this so that when you hover, that both the name/computer react. 
+        // 4. Add title to SVG
+        // 5. Succes Message
+        // 6. Statistics Panel (Available Seats / Total Students / ... )
+        // 7. You could add eventListenere's for dynamic updating to the Student List
+        // 8. FAR FUTURE: Allow computer's to be disabled, and auto-update the seating.
+        // 9. Manually assign seating (drag + drop)
+        // 10. Clear Assignment every time button is pressed
+        //     -- This will eventually be done automatically because it has to 'redraw' the different parts
+
+        // First, create variables
+        var inputCourseName;
+        var inputStudentList;
+        var inputClassroom;
+
+        // Assign variables
+        inputCourseName = document.getElementById('inputCourseName').value;
+        inputStudentList = document.getElementById('inputStudentList').value;
+        inputClassroom = document.getElementById('inputClassroom').value;
+
+        var convertedList;
+
+        // Turn SVG IDs into an Array
+        // This works
+        // Would work better if SVG was dynamically created - so that the background wasn't a rect
+
+        // This is the code using JQuery - but maybe there's a way to achieve this without?
+        var computerId = [];
+        $('rect').each(function () {
+            var id = $(this).attr('id');
+            computerId.push(id);
+        });
+
+        // Convert StudentList to Array
+        // TESTED:WORKS!!!!!!!!!
+        function convertList() {
+            convertedList = $('#inputStudentList').val().split('\n');
+        }
+
+        var svg = document.getElementById('svg');
+        // Assign students (one by one) to computer
+        // This iteration will look something like:
+        function assignSeating() {
+            convertList();
+            for (var i = 0; i < convertedList.length; i++) {
+                // get computer co-ordinates
+                // create new span with class 'studentName'
+                // put current array value as content of new span element
+                var computer = computerId[i + 1]; //we're skipping the first one, because it's the background
+                var x = +document.getElementById(computer).getAttribute('x');
+                var y = +document.getElementById(computer).getAttribute('y');
+                var h = +document.getElementById(computer).getAttribute('height');
+                var w = +document.getElementById(computer).getAttribute('weight');
+                var studentName = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                studentName.setAttribute('x', x + w/2);
+                studentName.setAttribute('y', y + h/2);
+                studentName.setAttribute('class', 'studentName');
+                studentName.textContent = convertedList[i];
+                svg.appendChild(studentName);
+            }
+            // show success message below button
+
+        }
+    </script>
+</body>
+</html>
