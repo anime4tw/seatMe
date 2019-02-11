@@ -1,0 +1,16 @@
+{
+	"name": "seat-me",
+	"version": "0.0.1",
+	"main": "index.js",
+	"repository": "https://github.com/anime4tw/seatMe.git",
+	"author": "NotSure",
+	"license": "MIT",
+	"scripts": {
+		"lint-js": "eslint \"./**/*.js\" --fix",
+		"lint-style": "stylelint  \"./**/*.scss\" --syntax scss --fix"
+	},
+	"devDependencies": {
+		"eslint": "^5.13.0",
+		"stylelint": "^9.10.1"
+	}
+}

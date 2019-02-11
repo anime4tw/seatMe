@@ -1,0 +1,18 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jquery": true
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 2018
+	},
+	"rules": {
+		"camelcase": 1,
+		"indent": [
+			"error",
+			"tab"
+		]
+	}
+}

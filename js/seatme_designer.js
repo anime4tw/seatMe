@@ -137,18 +137,18 @@ function drawBox(roomWidth, roomHeight) {
 
 function changeRoomSize(command) {
 	switch (command) {
-		case "w-":
-			roomWidth -= 0.25;
-			break;
-		case "w+":
-			roomWidth += 0.25;
-			break;
-		case "h-":
-			roomHeight -= 0.25;
-			break;
-		case "h+":
-			roomHeight += 0.25;
-			break;
+	case "w-":
+		roomWidth -= 0.25;
+		break;
+	case "w+":
+		roomWidth += 0.25;
+		break;
+	case "h-":
+		roomHeight -= 0.25;
+		break;
+	case "h+":
+		roomHeight += 0.25;
+		break;
 	}
 
 	stickToWall();
@@ -197,27 +197,27 @@ function createObject(evt) {
 			if ((Math.floor((offsetX) / cellSize) * cellSize <= (roomWidth * 100) - parseInt(window.getComputedStyle(selectedObject, null).getPropertyValue("width"))) &&
 				(Math.floor((offsetY) / cellSize) * cellSize <= (roomHeight * 100) - parseInt(window.getComputedStyle(selectedObject, null).getPropertyValue("height")))) {
 				switch (selectedObject.className.split(" ")[0]) {
-					case "seat":
-						drawObject(
-							Math.floor(offsetX / cellSize) * cellSize,
-							Math.floor(offsetY / cellSize) * cellSize,
-							"seat"
-						);
-						break;
-					case "door":
-						drawObject(
-							Math.floor(offsetX / cellSize) * cellSize,
-							Math.floor(offsetY / cellSize) * cellSize,
-							"door"
-						);
-						break;
-					case "whiteBoard":
-						drawObject(
-							Math.floor(offsetX / cellSize) * cellSize,
-							Math.floor(offsetY / cellSize) * cellSize,
-							"whiteboard"
-						);
-						break;
+				case "seat":
+					drawObject(
+						Math.floor(offsetX / cellSize) * cellSize,
+						Math.floor(offsetY / cellSize) * cellSize,
+						"seat"
+					);
+					break;
+				case "door":
+					drawObject(
+						Math.floor(offsetX / cellSize) * cellSize,
+						Math.floor(offsetY / cellSize) * cellSize,
+						"door"
+					);
+					break;
+				case "whiteBoard":
+					drawObject(
+						Math.floor(offsetX / cellSize) * cellSize,
+						Math.floor(offsetY / cellSize) * cellSize,
+						"whiteboard"
+					);
+					break;
 				}
 			}
 		}
@@ -316,30 +316,30 @@ function drop(evt) {
 	//drawSeat(Math.floor((offsetX - diffX) / cellSize) * cellSize, Math.floor((offsetY - diffY) / cellSize) * cellSize, "h");
 
 	switch (dragElement.className.split(" ")[0]) {
-		case "seat":
-			drawObject(
-				Math.floor((offsetX - diffX) / cellSize) * cellSize,
-				Math.floor((offsetY - diffY) / cellSize) * cellSize,
-				"seat",
-				dragElement
-			);
-			break;
-		case "door":
-			drawObject(
-				Math.floor((offsetX - diffX) / cellSize) * cellSize,
-				Math.floor((offsetY - diffY) / cellSize) * cellSize,
-				"door",
-				dragElement
-			);
-			break;
-		case "whiteBoard":
-			drawObject(
-				Math.floor((offsetX - diffX) / cellSize) * cellSize,
-				Math.floor((offsetY - diffY) / cellSize) * cellSize,
-				"whiteboard",
-				dragElement
-			);
-			break;
+	case "seat":
+		drawObject(
+			Math.floor((offsetX - diffX) / cellSize) * cellSize,
+			Math.floor((offsetY - diffY) / cellSize) * cellSize,
+			"seat",
+			dragElement
+		);
+		break;
+	case "door":
+		drawObject(
+			Math.floor((offsetX - diffX) / cellSize) * cellSize,
+			Math.floor((offsetY - diffY) / cellSize) * cellSize,
+			"door",
+			dragElement
+		);
+		break;
+	case "whiteBoard":
+		drawObject(
+			Math.floor((offsetX - diffX) / cellSize) * cellSize,
+			Math.floor((offsetY - diffY) / cellSize) * cellSize,
+			"whiteboard",
+			dragElement
+		);
+		break;
 	}
 
 	_("drawingBox").removeChild(dragElement);
