@@ -137,18 +137,18 @@ function drawBox(roomWidth, roomHeight) {
 
 function changeRoomSize(command) {
 	switch (command) {
-		case "w-":
-			roomWidth -= 0.25;
-			break;
-		case "w+":
-			roomWidth += 0.25;
-			break;
-		case "h-":
-			roomHeight -= 0.25;
-			break;
-		case "h+":
-			roomHeight += 0.25;
-			break;
+	case "w-":
+		roomWidth -= 0.25;
+		break;
+	case "w+":
+		roomWidth += 0.25;
+		break;
+	case "h-":
+		roomHeight -= 0.25;
+		break;
+	case "h+":
+		roomHeight += 0.25;
+		break;
 	}
 
 	stickToWall();
@@ -197,27 +197,27 @@ function createObject(evt) {
 			if ((Math.floor((offsetX) / cellSize) * cellSize <= (roomWidth * 100) - parseInt(window.getComputedStyle(selectedObject, null).getPropertyValue("width"))) &&
 				(Math.floor((offsetY) / cellSize) * cellSize <= (roomHeight * 100) - parseInt(window.getComputedStyle(selectedObject, null).getPropertyValue("height")))) {
 				switch (selectedObject.className.split(" ")[0]) {
-					case "seat":
-						drawObject(
-							Math.floor(offsetX / cellSize) * cellSize,
-							Math.floor(offsetY / cellSize) * cellSize,
-							"seat"
-						);
-						break;
-					case "door":
-						drawObject(
-							Math.floor(offsetX / cellSize) * cellSize,
-							Math.floor(offsetY / cellSize) * cellSize,
-							"door"
-						);
-						break;
-					case "whiteBoard":
-						drawObject(
-							Math.floor(offsetX / cellSize) * cellSize,
-							Math.floor(offsetY / cellSize) * cellSize,
-							"whiteboard"
-						);
-						break;
+				case "seat":
+					drawObject(
+						Math.floor(offsetX / cellSize) * cellSize,
+						Math.floor(offsetY / cellSize) * cellSize,
+						"seat"
+					);
+					break;
+				case "door":
+					drawObject(
+						Math.floor(offsetX / cellSize) * cellSize,
+						Math.floor(offsetY / cellSize) * cellSize,
+						"door"
+					);
+					break;
+				case "whiteBoard":
+					drawObject(
+						Math.floor(offsetX / cellSize) * cellSize,
+						Math.floor(offsetY / cellSize) * cellSize,
+						"whiteboard"
+					);
+					break;
 				}
 			}
 		}
@@ -316,30 +316,30 @@ function drop(evt) {
 	//drawSeat(Math.floor((offsetX - diffX) / cellSize) * cellSize, Math.floor((offsetY - diffY) / cellSize) * cellSize, "h");
 
 	switch (dragElement.className.split(" ")[0]) {
-		case "seat":
-			drawObject(
-				Math.floor((offsetX - diffX) / cellSize) * cellSize,
-				Math.floor((offsetY - diffY) / cellSize) * cellSize,
-				"seat",
-				dragElement
-			);
-			break;
-		case "door":
-			drawObject(
-				Math.floor((offsetX - diffX) / cellSize) * cellSize,
-				Math.floor((offsetY - diffY) / cellSize) * cellSize,
-				"door",
-				dragElement
-			);
-			break;
-		case "whiteBoard":
-			drawObject(
-				Math.floor((offsetX - diffX) / cellSize) * cellSize,
-				Math.floor((offsetY - diffY) / cellSize) * cellSize,
-				"whiteboard",
-				dragElement
-			);
-			break;
+	case "seat":
+		drawObject(
+			Math.floor((offsetX - diffX) / cellSize) * cellSize,
+			Math.floor((offsetY - diffY) / cellSize) * cellSize,
+			"seat",
+			dragElement
+		);
+		break;
+	case "door":
+		drawObject(
+			Math.floor((offsetX - diffX) / cellSize) * cellSize,
+			Math.floor((offsetY - diffY) / cellSize) * cellSize,
+			"door",
+			dragElement
+		);
+		break;
+	case "whiteBoard":
+		drawObject(
+			Math.floor((offsetX - diffX) / cellSize) * cellSize,
+			Math.floor((offsetY - diffY) / cellSize) * cellSize,
+			"whiteboard",
+			dragElement
+		);
+		break;
 	}
 
 	_("drawingBox").removeChild(dragElement);
@@ -422,14 +422,14 @@ function getLocations() {
 	xhr.open('GET', 'http://www.seatme.mayconcsantos.com/storeData.php');
 	xhr.onload = function () {
 		if (xhr.status === 200) {
-			data_institutions = xhr.responseText;
-			json_institutions = JSON.parse(data_institutions);
+			dataInstitutions = xhr.responseText;
+			jsonInstitutions = JSON.parse(dataInstitutions);
 
 			// Populate the Location select
-			for (var key in json_institutions.institutions) {
+			for (var key in jsonInstitutions.institutions) {
 				var option = document.createElement("option");
-				option.text = json_institutions.institutions[key].name;
-				option.value = json_institutions.institutions[key].id;
+				option.text = jsonInstitutions.institutions[key].name;
+				option.value = jsonInstitutions.institutions[key].id;
 				institutionsSelect.add(option);
 			}
 
@@ -450,12 +450,12 @@ function populateRoom() {
 	roomsSelect.options.length = 0;
 
 	// Populate the room select
-	for (var key in json_institutions.institutions) {
+	for (var key in jsonInstitutions.institutions) {
 
-		if (json_institutions.institutions[key].id == institutionsSelect.value) {
+		if (jsonInstitutions.institutions[key].id == institutionsSelect.value) {
 
 			// Check if rooms array is empty
-			if (json_institutions.institutions[key].rooms.length == 0) {
+			if (jsonInstitutions.institutions[key].rooms.length == 0) {
 				var option = document.createElement("option");
 				option.text = "There is no room available for the selected instituition";
 				roomsSelect.add(option);
@@ -467,10 +467,10 @@ function populateRoom() {
 				option.text = "Select a room";
 				roomsSelect.add(option);
 
-				for (var room in json_institutions.institutions[key].rooms) {
+				for (var room in jsonInstitutions.institutions[key].rooms) {
 					var option = document.createElement("option");
-					option.text = json_institutions.institutions[key].rooms[room].name;
-					option.value = json_institutions.institutions[key].rooms[room].id;
+					option.text = jsonInstitutions.institutions[key].rooms[room].name;
+					option.value = jsonInstitutions.institutions[key].rooms[room].id;
 					roomsSelect.add(option);
 				}
 			}
@@ -492,12 +492,12 @@ function loadRoom() {
 		xhr.onload = function () {
 			if (xhr.status === 200) {
 
-				// data_room variable contains the JSON with properties and objects of the room
-				data_room = xhr.responseText;
+				// dataRoom variable contains the JSON with properties and objects of the room
+				dataRoom = xhr.responseText;
 
-				//console.log(data_room);
+				//console.log(dataRoom);
 
-				//document.getElementById("json-content").innerHTML = "<pre>" + data_room + "</pre>";
+				//document.getElementById("json-content").innerHTML = "<pre>" + dataRoom + "</pre>";
 			} else {
 				alert('Request failed.  Returned status of ' + xhr.status);
 			}
