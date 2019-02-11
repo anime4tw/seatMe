@@ -422,14 +422,14 @@ function getLocations() {
 	xhr.open('GET', 'http://www.seatme.mayconcsantos.com/storeData.php');
 	xhr.onload = function () {
 		if (xhr.status === 200) {
-			data_institutions = xhr.responseText;
-			json_institutions = JSON.parse(data_institutions);
+			dataInstitutions = xhr.responseText;
+			jsonInstitutions = JSON.parse(dataInstitutions);
 
 			// Populate the Location select
-			for (var key in json_institutions.institutions) {
+			for (var key in jsonInstitutions.institutions) {
 				var option = document.createElement("option");
-				option.text = json_institutions.institutions[key].name;
-				option.value = json_institutions.institutions[key].id;
+				option.text = jsonInstitutions.institutions[key].name;
+				option.value = jsonInstitutions.institutions[key].id;
 				institutionsSelect.add(option);
 			}
 
@@ -450,12 +450,12 @@ function populateRoom() {
 	roomsSelect.options.length = 0;
 
 	// Populate the room select
-	for (var key in json_institutions.institutions) {
+	for (var key in jsonInstitutions.institutions) {
 
-		if (json_institutions.institutions[key].id == institutionsSelect.value) {
+		if (jsonInstitutions.institutions[key].id == institutionsSelect.value) {
 
 			// Check if rooms array is empty
-			if (json_institutions.institutions[key].rooms.length == 0) {
+			if (jsonInstitutions.institutions[key].rooms.length == 0) {
 				var option = document.createElement("option");
 				option.text = "There is no room available for the selected instituition";
 				roomsSelect.add(option);
@@ -467,10 +467,10 @@ function populateRoom() {
 				option.text = "Select a room";
 				roomsSelect.add(option);
 
-				for (var room in json_institutions.institutions[key].rooms) {
+				for (var room in jsonInstitutions.institutions[key].rooms) {
 					var option = document.createElement("option");
-					option.text = json_institutions.institutions[key].rooms[room].name;
-					option.value = json_institutions.institutions[key].rooms[room].id;
+					option.text = jsonInstitutions.institutions[key].rooms[room].name;
+					option.value = jsonInstitutions.institutions[key].rooms[room].id;
 					roomsSelect.add(option);
 				}
 			}
@@ -492,12 +492,12 @@ function loadRoom() {
 		xhr.onload = function () {
 			if (xhr.status === 200) {
 
-				// data_room variable contains the JSON with properties and objects of the room
-				data_room = xhr.responseText;
+				// dataRoom variable contains the JSON with properties and objects of the room
+				dataRoom = xhr.responseText;
 
-				//console.log(data_room);
+				//console.log(dataRoom);
 
-				//document.getElementById("json-content").innerHTML = "<pre>" + data_room + "</pre>";
+				//document.getElementById("json-content").innerHTML = "<pre>" + dataRoom + "</pre>";
 			} else {
 				alert('Request failed.  Returned status of ' + xhr.status);
 			}

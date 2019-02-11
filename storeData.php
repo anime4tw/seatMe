@@ -1,11 +1,11 @@
-<?php header('Access-Control-Allow-Origin: *'); ?>
+<?php header( 'Access-Control-Allow-Origin: *' ); ?>
 
 <?php	
 	function getInstitutions(){
 		$conn = newConnection();
 		$sql = "SELECT id, name FROM institution";
 		
-		$result = $conn->query($sql);
+		$result = $conn->query( $sql );
 		
 		if ($result->num_rows > 0) {
 			$response = '{"institutions":[';
@@ -13,21 +13,21 @@
 				if($cont != 0){
 					$response .= ',';
 				}
-				$response .= '{"id":'.$row['id'].',"name":"'.$row['name'].'",'.getRoomsByInstitutionId($row['id']).'}';
+				$response .= '{"id":'.$row['id'].',"name":"'.$row['name'].'",'.getRoomsByInstitutionId( $row['id'] ).'}';
 			}
 			$response .= ']}';
 		} else {
 			$response=null;
 		}
 						
-		closeConnection($conn);
+		closeConnection( $conn );
 		return $response;
 	}
 	function getInstitutionNameById($id){
 		$conn = newConnection();
 		$sql = "SELECT name FROM institution WHERE id=".$id;
 		
-		$result = $conn->query($sql);
+		$result = $conn->query( $sql );
 		
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
@@ -37,14 +37,14 @@
 			$name="";
 		}		
 					
-		closeConnection($conn);
+		closeConnection( $conn );
 		return $name;
 	}
 	function getRoomsByInstitutionId($id){
 		$conn = newConnection();
 		$sql = "SELECT id, name FROM room WHERE id_institution =".$id;
 		
-		$result = $conn->query($sql);
+		$result = $conn->query( $sql );
 		
 		if ($result->num_rows > 0) {
 			$response = '"rooms":[';			
@@ -60,14 +60,14 @@
 			$response='"rooms":[]';
 		}
 						
-		closeConnection($conn);
+		closeConnection( $conn );
 		return $response;
 	}
 	
 	function getJsonByRoomId($roomId){
 		$conn = newConnection();
 		$sql = "SELECT json FROM room WHERE id=".$roomId;
-		$result = $conn->query($sql);
+		$result = $conn->query( $sql );
 		
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
@@ -77,7 +77,7 @@
 			$json="";
 		}
 						
-		closeConnection($conn);
+		closeConnection( $conn );
 		return $json;
 	}
 
@@ -87,18 +87,18 @@
 		$query = "INSERT INTO room (name, id_institution, json)
 			VALUES ('$nameRoom', $idInstitution, '$json')";
 
-		$nameInstitution = getInstitutionNameById($idInstitution);
-		if ($conn->query($query) === TRUE) {
+		$nameInstitution = getInstitutionNameById( $idInstitution );
+		if ($conn->query( $query ) === TRUE) {
 		$message = 'The room '.$nameRoom.' was created successfully at '.$nameInstitution;
 		} else {						
-			if(substr($conn->error, 0, 15) == "Duplicate entry"){				
+			if(substr( $conn->error, 0, 15 ) == "Duplicate entry"){				
 				$message = 'The room '.$nameRoom.' already exists at '.$nameInstitution;	
 			}
 			else{
 				$message = 'An error occurred while creating your room, please try again';
 			}			
 		}
-		closeConnection($conn);
+		closeConnection( $conn );
 		return $message;
 	}
 	
@@ -108,18 +108,18 @@
 		if($id != null){
 			$query = "UPDATE room SET json='$json' WHERE id='$id'";
 	
-			if ($conn->query($query) === TRUE) {
-				closeConnection($conn);
+			if ($conn->query( $query ) === TRUE) {
+				closeConnection( $conn );
 				$message = 'Room updated successfully';
 			} else {
-				closeConnection($conn);
+				closeConnection( $conn );
 				$message = 'An error occurred while updating your room, please try again';			
 			}
 		}else{
 			$message = 'You need select a room to update';
 		}
 		
-		closeConnection($conn);
+		closeConnection( $conn );
 		return $message;
 	}
 	
@@ -129,10 +129,10 @@
 		$password = "@Seatme2017";
 		$dbname = "mmsitesc_seatme";
 	
-		$conn = new mysqli($servername, $username, $password, $dbname);
+		$conn = new mysqli( $servername, $username, $password, $dbname );
 				
 		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+			die( "Connection failed: " . $conn->connect_error );
 		}else{
 			return $conn;
 		}
@@ -143,7 +143,7 @@
 	}
 
 	if ($_GET["getJsonByRoomId"]) {
-		echo getJsonByRoomId($_GET["getJsonByRoomId"]);
+		echo getJsonByRoomId( $_GET["getJsonByRoomId"] );
 	}
 	else{
 		getInstitutions();

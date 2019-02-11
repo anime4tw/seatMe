@@ -1,2 +1,6 @@
+# Libraries folders
 node_modules
+vendor
+
+# Log files
 yarn-error.log

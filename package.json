@@ -6,8 +6,8 @@
 	"author": "NotSure",
 	"license": "MIT",
 	"scripts": {
-		"lint-js": "eslint \"./**/*.js\" --fix",
-		"lint-style": "stylelint  \"./**/*.scss\" --syntax scss --fix"
+		"lint": "eslint \"./**/*.js\" && stylelint \"./**/*.scss\" --syntax scss",
+		"fix": "eslint \"./**/*.js\" --fix && stylelint \"./**/*.scss\" --syntax scss --fix"
 	},
 	"devDependencies": {
 		"eslint": "^5.13.0",

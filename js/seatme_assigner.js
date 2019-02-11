@@ -2,10 +2,10 @@
 // 
 
 var data;
-var data_room;
+var dataRoom;
 
 data = '{"width":7,"height":5,"objects":[{"type":"seat","isActive":true,"cornerX":"0","cornerY":"25","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"25","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"25","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"25","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"25","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"0","cornerY":"75","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"75","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"75","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"75","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"75","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"0","cornerY":"175","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"175","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"175","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"175","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"175","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"225","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"225","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"225","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"225","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"0","cornerY":"225","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"0","cornerY":"325","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"325","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"325","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"325","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"325","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"375","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"375","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"375","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"375","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"0","cornerY":"375","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"0","cornerY":"450","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"100","cornerY":"450","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"200","cornerY":"450","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"300","cornerY":"450","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"400","cornerY":"450","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"500","cornerY":"25","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"500","cornerY":"75","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"500","cornerY":"175","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"500","cornerY":"225","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"500","cornerY":"325","w":100,"h":50,"rotation":0},{"type":"seat","isActive":true,"cornerX":"500","cornerY":"375","w":100,"h":50,"rotation":0},{"type":"door","isActive":true,"cornerX":"550","cornerY":"475","w":100,"h":25,"rotation":0},{"type":"whiteBoard","isActive":true,"cornerX":"675","cornerY":"100","w":25,"h":200,"rotation":90}]}'
-data_room = JSON.parse(data);
+dataRoom = JSON.parse(data);
 
 window.onload = function () {
 	getLocations();
@@ -27,8 +27,8 @@ function setup() {
 		//Get from Server
 		// loadRoom();
 
-		//Convert to JSON - always assigned to data_room
-		JSON.parse(data_room);
+		//Convert to JSON - always assigned to dataRoom
+		JSON.parse(dataRoom);
 	});
 	_("assign").addEventListener("click", function() {
 		convertList(_("inputStudents"));
@@ -40,10 +40,10 @@ function setup() {
 var seats = [];
 
 function drawRoom() {
-	_("drawRoom").setAttribute("style", "width:" + data_room.width * 100 + "px;height:" + data_room.height * 100 + "px;");
-	for (var object = 0; object < data_room.objects.length; object++) {
+	_("drawRoom").setAttribute("style", "width:" + dataRoom.width * 100 + "px;height:" + dataRoom.height * 100 + "px;");
+	for (var object = 0; object < dataRoom.objects.length; object++) {
 		var currentObject;
-		currentObject = new RoomObject(object, data_room.objects[object].type, data_room.objects[object].isActive, data_room.objects[object].cornerX, data_room.objects[object].cornerY, data_room.objects[object].w, data_room.objects[object].h, data_room.objects[object].rotation);
+		currentObject = new RoomObject(object, dataRoom.objects[object].type, dataRoom.objects[object].isActive, dataRoom.objects[object].cornerX, dataRoom.objects[object].cornerY, dataRoom.objects[object].w, dataRoom.objects[object].h, dataRoom.objects[object].rotation);
 		var cnv = _("drawRoom");
 		currentObject.draw(cnv);
 		// Pushes all active seats to the array
@@ -141,14 +141,14 @@ function getLocations() {
 	xhr.open("GET", "http://www.seatme.mayconcsantos.com/storeData.php");
 	xhr.onload = function () {
 		if (xhr.status === 200) {
-			data_institutions = xhr.responseText;
-			json_institutions = JSON.parse(data_institutions);
+			dataInstitutions = xhr.responseText;
+			jsonInstitutions = JSON.parse(dataInstitutions);
 
 			// Populate the Location select
-			for (var key in json_institutions.institutions) {
+			for (var key in jsonInstitutions.institutions) {
 				var option = document.createElement("option");
-				option.text = json_institutions.institutions[key].name;
-				option.value = json_institutions.institutions[key].id;
+				option.text = jsonInstitutions.institutions[key].name;
+				option.value = jsonInstitutions.institutions[key].id;
 				institutionsSelect.add(option);
 			}
 
@@ -169,12 +169,12 @@ function populateRoom() {
 	roomsSelect.options.length = 0;
 
 	// Populate the room select
-	for (var key in json_institutions.institutions) {
+	for (var key in jsonInstitutions.institutions) {
 
-		if (json_institutions.institutions[key].id == institutionsSelect.value) {
+		if (jsonInstitutions.institutions[key].id == institutionsSelect.value) {
 
 			// Check if rooms array is empty
-			if (json_institutions.institutions[key].rooms.length == 0) {
+			if (jsonInstitutions.institutions[key].rooms.length == 0) {
 				var option = document.createElement("option");
 				option.text = "There is no room available for the selected instituition";
 				roomsSelect.add(option);
@@ -186,10 +186,10 @@ function populateRoom() {
 				option.text = "Select a room";
 				roomsSelect.add(option);
 
-				for (var room in json_institutions.institutions[key].rooms) {
+				for (var room in jsonInstitutions.institutions[key].rooms) {
 					var option = document.createElement("option");
-					option.text = json_institutions.institutions[key].rooms[room].name;
-					option.value = json_institutions.institutions[key].rooms[room].id;
+					option.text = jsonInstitutions.institutions[key].rooms[room].name;
+					option.value = jsonInstitutions.institutions[key].rooms[room].id;
 					roomsSelect.add(option);
 				}
 			}
@@ -211,12 +211,12 @@ function loadRoom() {
 		xhr.onload = function () {
 			if (xhr.status === 200) {
 
-				// data_room variable contains the JSON with properties and objects of the room
-				data_room = xhr.responseText;
+				// dataRoom variable contains the JSON with properties and objects of the room
+				dataRoom = xhr.responseText;
 
-				//console.log(data_room);
+				//console.log(dataRoom);
 
-				//document.getElementById("json-content").innerHTML = "<pre>" + data_room + "</pre>";
+				//document.getElementById("json-content").innerHTML = "<pre>" + dataRoom + "</pre>";
 			} else {
 				alert("Request failed.  Returned status of " + xhr.status);
 			}

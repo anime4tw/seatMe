@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+fix_your_shit()
+{
+  if [ $1 != 0 ]; then
+    errors=$1
+    echo "😱 Failed"
+	echo "🔨  Please fix coding standards errors before committing"
+	exit 1
+  else
+    echo "👌  Ok!"
+  fi
+}
+
+echo "💅  Checking Javascript and SCSS for errors, warning and convention 'mistakes'"
+yarn --silent lint
+fix_your_shit $?
+
+echo "Done."
