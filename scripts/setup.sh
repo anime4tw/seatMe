@@ -11,8 +11,9 @@ code --install-extension shinnn.stylelint
 
 echo ""
 echo "*****************************************"
-echo "*    Updating the pre-commit hook       *"
+echo "*      Updating the GitHub hooks        *"
 echo "*****************************************"
 cp ./scripts/pre-commit ./.git/hooks/pre-commit
+cp ./scripts/pre-push ./.git/hooks/pre-push
 
 echo "Done =)"
